@@ -7,43 +7,66 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 400px;
+            max-width: 600px;
             margin: auto;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #f5f7fa;
+            color: #333;
         }
         h2 {
             text-align: center;
+            font-weight: bold;
+            color: #4a90e2;
+            margin-bottom: 20px;
         }
         form {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         label {
             font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
         select, input, textarea, button {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        select:focus, input:focus, textarea:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
         }
         button {
-            background-color: green;
-            color: white;
+            background-color: #4a90e2;
+            color: #fff;
             border: none;
             cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
         }
         button:hover {
-            background-color: darkgreen;
+            background-color: #357ab9;
+            transform: translateY(-2px);
+        }
+        button:focus {
+            outline: none;
         }
     </style>
 </head>
 <body>
 
-    <h2>Daily Sales Report - Heaven's Kitchen</h2>
+    <h2>Daily Sales Report</h2>
     
     <form id="salesForm">
         <!-- Staff Name Dropdown -->
@@ -72,21 +95,9 @@
         <label for="totalPaid">Total Paid Amount (Required)</label>
         <input type="number" id="totalPaid" placeholder="Enter total paid amount" required>
 
-        <!-- Most Sold Item Dropdown -->
+        <!-- Most Sold Item Changed to Text Input -->
         <label for="mostSoldItem">Most Sold Item (Required)</label>
-        <select id="mostSoldItem" required>
-            <option value="" disabled selected>Select Most Sold Item</option>
-            <option value="biryani">Biryani</option>
-            <option value="kacchi">Kacchi</option>
-            <option value="Beef Curry">Beef Curry</option>
-            <option value="Meat Curry">Meat Curry</option>
-            <option value="Burger">Burger</option>
-            <option value="Pizza">Pizza</option>
-            <option value="Barista">Barista</option>
-            <option value="Chicken Biryani">Chicken Biryani</option>
-            <option value="Mutton Biryani">Mutton Biryani</option>
-            <option value="Sweets">Sweets</option>
-        </select>
+        <input type="text" id="mostSoldItem" placeholder="Enter most sold item" required>
 
         <!-- Additional Remarks -->
         <label for="remarks">Additional Remarks (Optional)</label>
@@ -105,7 +116,7 @@
                 numCustomers: document.getElementById("numCustomers").value,
                 totalSold: document.getElementById("totalSold").value,
                 totalPaid: document.getElementById("totalPaid").value,
-                mostSoldItem: document.getElementById("mostSoldItem").value,
+                mostSoldItem: document.getElementById("mostSoldItem").value, // Changed to Text Input
                 remarks: document.getElementById("remarks").value
             };
 
